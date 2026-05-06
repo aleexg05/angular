@@ -1,0 +1,50 @@
+<div *ngIf="!firaSeleccionada" class="preferides-section">
+  <h2 *ngIf="preferides.length > 0">Les meves Fires Preferides</h2>
+  
+  <div class="grid-preferides" *ngIf="preferides.length > 0">
+    <div *ngFor="let fira of preferides" class="card-preferida">
+      <div class="info-principal">
+        <h3>{{ fira.activityName }}</h3>
+        <p><strong>Municipi:</strong> {{ fira.municipalityName }}</p>
+        <p><strong>Data:</strong> {{ fira.date }}</p>
+      </div>
+
+      <div class="accions-preferida">
+        <button class="btn-desmarcar" (click)="desmarcar(fira)">
+          Desmarcar como favorita
+        </button>
+        <button class="btn-info-pref" (click)="veureInfo(fira)">
+          Més informació
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="preferides.length === 0" class="no-preferides">
+    <p>Encara no has afegit cap fira a les teves preferides.</p>
+  </div>
+</div>
+
+
+<div *ngIf="firaSeleccionada" class="fira-detalle-preferida">
+  <button (click)="tornarAlLlistat()" class="btn-back">← Tornar al llistat</button>
+  
+  <h2>{{ firaSeleccionada.activityName }}</h2>
+  
+  <div class="fira-card-detalle">
+    <p><strong>Municipi:</strong> {{ firaSeleccionada.municipalityName }}</p>
+    <p><strong>Comarca:</strong> {{ firaSeleccionada.regionName }}</p>
+    <p><strong>Ubicació:</strong> {{ firaSeleccionada.location }}</p>
+    <p><strong>Data:</strong> {{ firaSeleccionada.date }}</p>
+    <p><strong>Organitzador:</strong> {{ firaSeleccionada.organizerName }}</p>
+    <p><strong>Telèfon:</strong> {{ firaSeleccionada.organizerPhone }}</p>
+    <p><strong>Email:</strong> {{ firaSeleccionada.email }}</p>
+   
+
+    <div class="accions-detalle">
+      <button class="btn-desmarcar" (click)="desmarcar(firaSeleccionada)">
+        Desmarcar como favorita
+      </button>
+    </div>
+  </div>
+</div>

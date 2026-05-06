@@ -1,0 +1,120 @@
+.preferides-section {
+  padding: 20px;
+  background-color: #fffdf2;
+  border-radius: 15px;
+  border: 2px solid #ffcc00;
+  margin: 20px 0;
+}
+
+.grid-preferides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card-preferida {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-preferida h3 {
+  margin: 0 0 10px 0;
+  color: #ff9900;
+}
+
+.accions-preferida {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-desmarcar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-info-pref {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-desmarcar:hover { background-color: #cc0000; }
+.btn-info-pref:hover { background-color: #0056b3; }
+
+
+.fira-detalle-preferida {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.fira-detalle-preferida .btn-back {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+
+.fira-detalle-preferida .btn-back:hover {
+  background-color: #f0f0f0;
+  border-color: #bbb;
+}
+
+.fira-detalle-preferida h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin: 20px 0;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.fira-detalle-preferida .fira-card-detalle {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fira-detalle-preferida .fira-card-detalle p {
+  margin: 12px 0;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.fira-detalle-preferida .fira-card-detalle strong {
+  color: #007bff;
+  width: 140px;
+  display: inline-block;
+}
+
+.fira-detalle-preferida .fira-card-detalle a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.fira-detalle-preferida .fira-card-detalle a:hover {
+  text-decoration: underline;
+}

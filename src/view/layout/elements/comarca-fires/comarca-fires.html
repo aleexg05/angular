@@ -1,0 +1,52 @@
+<div *ngIf="!firaSeleccionada">
+  <h3>Selecciona una comarca</h3>
+  <select [(ngModel)]="comarcaSeleccionada" (change)="alCanviarComarca()">
+    <option [value]="null">-- Selecciona una comarca --</option>
+    <option *ngFor="let comarca of comarques" [value]="comarca">
+      {{ comarca }}
+    </option>
+  </select>
+
+  <h2 *ngIf="comarcaSeleccionada">Llistat de fires de {{ comarcaSeleccionada }}</h2>
+
+  <div *ngFor="let fira of firesFiltrades" class="fira-card">
+    <div class="fira-info">
+      <h2>{{ fira.activityName }}</h2>
+      <p><strong>Municipi:</strong> {{ fira.municipalityName }}</p>
+      <p><strong>Data:</strong> {{ fira.date }}</p>
+    </div>
+
+    <div class="botones-group">
+      <button class="btn-preferida" (click)="marcarPreferida(fira)">
+        Marcar com preferida
+      </button>
+      <button class="btn-info" (click)="mesInformacio(fira)">
+        Més informació
+      </button>
+    </div>
+  </div>
+
+  <p *ngIf="comarcaSeleccionada && firesFiltrades.length === 0">
+    No s'han trobat fires en aquesta comarca.
+  </p>
+</div>
+
+<div *ngIf="firaSeleccionada" class="fira-detalle-completo">
+  <button (click)="tornarAlLlistat()" class="btn-back">← Tornar al llistat</button>
+  
+  <h2>{{ firaSeleccionada.activityName }}</h2>
+  
+  <div class="fira-card-detalle">
+    <p><strong>Municipi:</strong> {{ firaSeleccionada.municipalityName }}</p>
+    <p><strong>Comarca:</strong> {{ firaSeleccionada.regionName }}</p>
+    <p><strong>Ubicació:</strong> {{ firaSeleccionada.location }}</p>
+    <p><strong>Data:</strong> {{ firaSeleccionada.date }}</p>
+    <p><strong>Organitzador:</strong> {{ firaSeleccionada.organizerName }}</p>
+    <p><strong>Telèfon:</strong> {{ firaSeleccionada.organizerPhone }}</p>
+    <p><strong>Email:</strong> {{ firaSeleccionada.email }}</p>
+    <p *ngIf="firaSeleccionada.web">
+      <strong>Web oficial:</strong> 
+      <a [href]="firaSeleccionada.web" target="_blank">{{ firaSeleccionada.web }}</a>
+    </p>
+  </div>
+</div>
