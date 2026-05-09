@@ -18,11 +18,15 @@ export class App {
   vistaActual: 'home' | 'comarca' | 'preferides' = 'home'; 
   firaSeleccionada: any = null;
   firaSeleccionadaSidebar: any = null;
+  constructor() {
+    this.restoreData();
+  }
 
   actualizarPreferidas(fira: any) {
     const existe = this.listaPreferidas.some(p => p.activityName === fira.activityName);
     if (!existe) {
       this.listaPreferidas = [...this.listaPreferidas, fira];
+      this.saveData();
     }
   }
 
@@ -51,6 +55,7 @@ export class App {
 
   desmarcar(fira: any) {
     this.listaPreferidas = this.listaPreferidas.filter(p => p.activityName !== fira.activityName);
+    this.saveData();
   }
 
   cambiarVista(vista: 'home' | 'comarca' | 'preferides') {
@@ -58,5 +63,15 @@ export class App {
     this.firaSeleccionada = null;
     this.firaSeleccionadaSidebar = null;
     this.mostrarDreta = true;
+  }
+  saveData(): void {
+    localStorage.setItem("Fires_preferides", JSON.stringify(this.listaPreferidas));
+  }
+
+  restoreData(): void {
+    const dades = localStorage.getItem("Fires_preferides");
+    if (dades) {
+      this.listaPreferidas = JSON.parse(dades);
+    }
   }
 }
