@@ -19,6 +19,9 @@ export class FiresPreferides {
   constructor() {
     this.restoreData();
   }
+  constructor() {
+    this.restoreData();
+  }
 
   desmarcar(fira: any) {
     this.onDesmarcar.emit(fira);
@@ -26,6 +29,7 @@ export class FiresPreferides {
       this.firaSeleccionada = null;
       this.firaSeleccionadaChange.emit(null);
     }
+    this.saveData;
     this.saveData;
   }
 
@@ -40,6 +44,20 @@ export class FiresPreferides {
     this.firaSeleccionadaChange.emit(null); 
     this.onVeureDetall.emit(null);
   }
+    saveData(): void {
+    localStorage.setItem("Fires_preferides", JSON.stringify(this.preferides));
+  
+  }
+   restoreData(): void {
+    let firesPreferides = localStorage.getItem("Fires_preferides");
+
+    if(firesPreferides) {
+      this.preferides = JSON.parse(firesPreferides) ;
+     
+    }
+
+  }
+ 
     saveData(): void {
     localStorage.setItem("Fires_preferides", JSON.stringify(this.preferides));
   
