@@ -16,9 +16,7 @@ export class FiresPreferides {
   @Output() firaSeleccionadaChange = new EventEmitter<any>();
 
   firaSeleccionada: any = null;
-  constructor() {
-    this.restoreData();
-  }
+
   constructor() {
     this.restoreData();
   }
@@ -44,19 +42,8 @@ export class FiresPreferides {
     this.firaSeleccionadaChange.emit(null); 
     this.onVeureDetall.emit(null);
   }
-    saveData(): void {
-    localStorage.setItem("Fires_preferides", JSON.stringify(this.preferides));
-  
-  }
-   restoreData(): void {
-    let firesPreferides = localStorage.getItem("Fires_preferides");
+ 
 
-    if(firesPreferides) {
-      this.preferides = JSON.parse(firesPreferides) ;
-     
-    }
-
-  }
  
     saveData(): void {
     localStorage.setItem("Fires_preferides", JSON.stringify(this.preferides));
